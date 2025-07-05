@@ -1,14 +1,9 @@
 import React from "react";
-import addToCartImg from '../add-to-cart.png'
+import '../App.css';
 import mobileImg from '../mobile.png'
-function Home(){
+function Home(props){
     return(
         <>
-        <div className="add-to-cart">
-           <img src={addToCartImg}/>
-           <h3>image added</h3>
-
-        </div>
         <h1>Home Component</h1>
         <div className="cart-wrapper">
             <div className="img-wrapper item">
@@ -23,8 +18,12 @@ function Home(){
                  </span>
             </div>
             <div className="btn-wrapper item">
-                <button>Add to cart</button>
-                 
+                <button onClick={()=>
+                    props.addToCartHandler({price:10000,name:'iphone 16'})
+                    }>Add to cart</button>
+                <button className="remove-cart-btn" onClick={() =>
+                    props.removeToCartHandler()
+                    }>Remove to cart</button>
             </div>
         </div>
         </>
